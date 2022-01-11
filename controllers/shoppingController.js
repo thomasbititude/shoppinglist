@@ -1,8 +1,8 @@
-var Item = require('../models/shoppingmodel');
+let Item = require('../models/shoppingmodel');
 
 
 exports.items =  async (req, res) => {
-    try{var items = await Item.fetchAll();
+    try{let items = await Item.fetchAll();
         res.json(items);
     } catch (error){
         res.send(error);
@@ -10,7 +10,7 @@ exports.items =  async (req, res) => {
     };
 
 exports.items_id = async(req,res) => {
-   try{var items_id = await Item.where('id',parseInt(req.params.id)).fetch();
+   try{let items_id = await Item.where('id',parseInt(req.params.id)).fetch();
    res.json(items_id);
 
    } catch (error){
@@ -19,7 +19,7 @@ exports.items_id = async(req,res) => {
    };
 
 exports.items_post = async(req,res) => {
-    try{var items = await Item.forge({...req.body}).save();
+    try{let items = await Item.forge({...req.body}).save();
         res.json(items);
     }catch (error){
         res.send(error);
@@ -27,7 +27,7 @@ exports.items_post = async(req,res) => {
     };
 
 exports.items_put = async(req,res) => {
-    try{var items = await Item.where('id',parseInt(req.params.id)).save({...req.body},{patch:true});
+    try{let items = await Item.where('id',parseInt(req.params.id)).save({...req.body},{patch:true});
         res.json(items);
     }catch (error){
         res.send(error);
@@ -35,7 +35,7 @@ exports.items_put = async(req,res) => {
     }; 
  
 exports.items_delete = async(req,res) => {
-    try{var items = await Item.where('id',parseInt(req.params.id)).destroy({...req.body});
+    try{let items = await Item.where('id',parseInt(req.params.id)).destroy({...req.body});
         res.json(items);
     }catch (error){
         res.send(error);

@@ -1,6 +1,6 @@
-var bookshelf =  require('../bookshelf');
+let bookshelf =  require('../bookshelf');
 
-var Item = bookshelf.model('Item',{
+let Item = bookshelf.model('Item',{
    tableName: "shopping" 
 });
 module.exports = Item;

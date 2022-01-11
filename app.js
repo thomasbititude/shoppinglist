@@ -1,13 +1,13 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+let createError = require('http-errors');
+let express = require('express');
+let path = require('path');
+let cookieParser = require('cookie-parser');
+let logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var itemsRouter = require('./routes/items');
-var app = express();
+let indexRouter = require('./routes/index');
+let usersRouter = require('./routes/users');
+let itemsRouter = require('./routes/items');
+let app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
