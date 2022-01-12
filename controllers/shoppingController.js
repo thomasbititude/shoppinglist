@@ -20,10 +20,10 @@ exports.items_id = async (req, res) => {
 };
 
 exports.items_post = async (req, res) => {
+  try {
     const errors = validationResult(req);
-  try {const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).send('invalid item.Try again');
+      return res.status(400).send("invalid item or price.Try again");
     }
     let items = await Item.forge({ ...req.body }).save();
     res.json(items);
@@ -32,8 +32,12 @@ exports.items_post = async (req, res) => {
   }
 };
 
-exports.items_put = async (req, res) => {
+exports.items_patch = async (req, res) => {
   try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).send("invalid item or price.Try again");
+    }
     let items = await Item.where("id", parseInt(req.params.id)).save(
       { ...req.body },
       { patch: true }
